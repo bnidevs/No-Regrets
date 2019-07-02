@@ -8,6 +8,10 @@
 
 import UIKit
 
+var level = -1
+var music = true
+var sfx = true
+
 class genqlogo: UIViewController {
 
     override func viewDidLoad() {
@@ -62,6 +66,7 @@ class optionscreen: UIViewController {
     
     @IBAction func tapmus(_ sender: musbutton) {
         sender.isSelected = !sender.isSelected
+        music = !music
         
         sender.setBackgroundImage(UIImage(named: "musicbuttonon"), for: .normal)
         sender.setBackgroundImage(UIImage(named: "musicbuttonoff"), for: .selected)
@@ -69,6 +74,7 @@ class optionscreen: UIViewController {
     
     @IBAction func tapsfx(_ sender: sfxbutton) {
         sender.isSelected = !sender.isSelected
+        sfx = !sfx
         
         sender.setBackgroundImage(UIImage(named: "sfxbuttonon"), for: .normal)
         sender.setBackgroundImage(UIImage(named: "sfxbuttonoff"), for: .selected)
@@ -124,6 +130,7 @@ class levelselect: UIViewController {
     
     func shiftSelect(){
         let val = self.select.tag
+        level = val
         
         if(val == 1){
             UIView.animate(withDuration: 0.5, animations: {
