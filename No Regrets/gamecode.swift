@@ -20,21 +20,25 @@ class gameview: UIViewController {
 }
 
 class GameScene: SKScene {
-    let charMdl = SKSpriteNode(imageNamed: "playermodel")
+    let inactivePrimMdl = SKTexture(image: UIImage(named: "playermodel")!)
+    let inactiveSecnMdl = SKTexture(image: UIImage(named: "breath1")!)
+    let inactiveQuatMdl = SKTexture(image: UIImage(named: "breath3")!)
+    var charMdl = SKSpriteNode(imageNamed: "playermodel")
     
     override func didMove(to view: SKView){
+        charMdl = SKSpriteNode(texture: inactivePrimMdl)
         charMdl.size = CGSize(width: 60, height: 90)
         charMdl.position = CGPoint(x: 200, y: view.bounds.height / 2)
         addChild(charMdl)
         
-        let fw = UITapGestureRecognizer(target: CGRect(x: view.bounds.width / 2, y: 0, width: view.bounds.width / 2, height: view.bounds.height), action: #selector(tapright))
+        let breathanim = SKAction.sequence([SKAction.animate(with: [inactiveSecnMdl], timePerFrame: 0.4), SKAction.animate(with: [inactiveQuatMdl], timePerFrame: 0.4), SKAction.animate(with: [inactivePrimMdl], timePerFrame: 0.4)])
+        charMdl.run(SKAction.repeatForever(breathanim))
+        
+        let fw = UITapGestureRecognizer(target: self, action: #selector(tap))
         view.addGestureRecognizer(fw)
     }
     
-    @objc func tapright(fw: UITapGestureRecognizer){
-        let rUPmotion = SKAction.move(to: CGPoint(x: charMdl.frame.minX, y: charMdl.frame.minY + 50), duration: 1)
-        let rDNmotion = SKAction.move(to: CGPoint(x: charMdl.frame.minX, y: charMdl.frame.minY - 50), duration: 1)
-        charMdl.run(rUPmotion)
-        charMdl.run(rDNmotion)
+    @objc func tap(fw: UITapGestureRecognizer){
+        
     }
 }
