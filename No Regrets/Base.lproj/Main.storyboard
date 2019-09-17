@@ -174,9 +174,23 @@
                     <view key="view" contentMode="scaleToFill" id="UVP-0q-En5" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kcC-v2-Rnd">
+                                <rect key="frame" x="369" y="0.0" width="298" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="notapforw:" destination="jH8-H7-ijj" eventType="touchUpInside" id="uU6-XW-G1e"/>
+                                    <action selector="tapforw:" destination="jH8-H7-ijj" eventType="touchDown" id="DIX-wd-dRe"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="uRS-Py-cUr"/>
                     </view>
+                    <connections>
+                        <outlet property="tapforw" destination="kcC-v2-Rnd" id="9mm-uI-vnh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="56J-oa-pAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -198,6 +212,7 @@
                                 </state>
                                 <connections>
                                     <action selector="tapsfx:" destination="Ng2-dQ-nSI" eventType="touchUpInside" id="fqi-mE-HIt"/>
+                                    <action selector="tapsfxact:" destination="Ng2-dQ-nSI" eventType="touchUpInside" id="Mto-Af-RHg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fa-fp-9mG">
@@ -217,6 +232,7 @@
                                 <connections>
                                     <action selector="tapmus:" destination="Ng2-dQ-nSI" eventType="touchUpInside" id="zyF-vG-4VO"/>
                                     <action selector="tapmus:forEvent:" destination="amG-b4-wwZ" eventType="touchUpInside" id="pnr-fi-1MH"/>
+                                    <action selector="tapmusact:" destination="Ng2-dQ-nSI" eventType="touchUpInside" id="0bZ-gi-MFB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,7 +283,6 @@
         <image name="titleimage" width="500" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7EP-GL-qxR"/>
         <segue reference="G4E-No-vGB"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

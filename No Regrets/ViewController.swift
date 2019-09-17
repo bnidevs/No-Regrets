@@ -9,8 +9,8 @@
 import UIKit
 
 var level = -1
-var music = true
-var sfx = true
+var music = false
+var sfx = false
 
 class genqlogo: UIViewController {
 
@@ -62,9 +62,10 @@ class optionscreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
-    @IBAction func tapmus(_ sender: musbutton) {
+    @IBAction func tapmusact(_ sender: musbutton) {
         sender.isSelected = !sender.isSelected
         music = !music
         
@@ -72,7 +73,7 @@ class optionscreen: UIViewController {
         sender.setBackgroundImage(UIImage(named: "musicbuttonoff"), for: .selected)
     }
     
-    @IBAction func tapsfx(_ sender: sfxbutton) {
+    @IBAction func tapsfxact(_ sender: sfxbutton) {
         sender.isSelected = !sender.isSelected
         sfx = !sfx
         
